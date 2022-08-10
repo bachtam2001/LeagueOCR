@@ -45,7 +45,7 @@ namespace LoLOCRHub
                     dragonName = Path.GetFileNameWithoutExtension(iconPath).Replace("Large", "");
                 } else
                 {
-                    dragonName = Path.GetFileNameWithoutExtension(iconPath);
+                    dragonName = Path.GetFileNameWithoutExtension(iconPath); 
                 }
                 if (Enum.TryParse(dragonName, out DragonType iconName))
                 {

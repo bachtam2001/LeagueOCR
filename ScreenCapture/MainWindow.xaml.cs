@@ -85,8 +85,6 @@ namespace LoLOCRHub
 
         private static EventHandler<FinishOCREventArgs> OCRFinished;
 
-        private bool doIM;
-
         private struct ObjectiveRequest
         {
             public AreaOfInterest aoi;
@@ -284,9 +282,6 @@ namespace LoLOCRHub
                     //Starting doing OCR on the scene since we now know where to look for what
                     CustomTimer.Instance.Start();
 
-                    //Make sure to get dragon Types on startup
-                    doIM = true;
-
                     //Start data server
                     HttpServer.StartServer();
                 }
@@ -346,12 +341,14 @@ namespace LoLOCRHub
 
             drakeCount.Value = HttpServer.dragon.TimesTakenInMatch;
             baronCount.Value = HttpServer.baron.TimesTakenInMatch;
-
-            if (doIM && HttpServer.dragon.Cooldown != int.MaxValue)
+            if (HttpServer.dragon.Cooldown != int.MaxValue &&
+                ((HttpServer.dragon.Cooldown >= 357 && HttpServer.dragon.Cooldown <= 360) ||
+                 (HttpServer.dragon.Cooldown >= 297 && HttpServer.dragon.Cooldown <= 300) ||
+                 (HttpServer.dragon.Cooldown >= 237 && HttpServer.dragon.Cooldown <= 240) ||
+                 (HttpServer.dragon.Cooldown >= 177 && HttpServer.dragon.Cooldown <= 180))
+            )
             {
-                doIM = false;
-                if (!DoDragonTypeImageMatching(OCR.Utils.ApplyCrop(bitmap, AOIList.Dragon_Type.Rect), out AOIList.Dragon_Type.CurrentContent))
-                    doIM = true;
+                DoDragonTypeImageMatching(OCR.Utils.ApplyCrop(bitmap, AOIList.Dragon_Type.Rect), out AOIList.Dragon_Type.CurrentContent);
             }
 
             //If set to low, perform OCR consecutively, otherwise use thread pooling to greatly speed up OCR
@@ -478,8 +475,8 @@ namespace LoLOCRHub
                 HttpServer.dragon.TimeSinceTaken = 0;
 
                 GetTeamInAreaOfInterest(HttpServer.dragon, AOIList.DragonTeam, bitmap, new List<Bitmap>(previousBmps));
-                if (!DoDragonTypeImageMatching(OCR.Utils.ApplyCrop(bitmap, AOIList.Dragon_Type.Rect), out AOIList.Dragon_Type.CurrentContent))
-                    doIM = true;
+                if (!(HttpServer.dragon.IsAlive))
+                    DoDragonTypeImageMatching(OCR.Utils.ApplyCrop(bitmap, AOIList.Dragon_Type.Rect), out AOIList.Dragon_Type.CurrentContent);
             }
             if (!(HttpServer.baron.IsAlive) && oldBaronIsAlive)
             {
@@ -658,7 +655,7 @@ namespace LoLOCRHub
             */
 
             //Simpler validation since confidence seems to be a rather good indicator if the result is valid
-            return result.confidence > 0.75f;
+            return result.confidence > 0.85f;
         }
 
         //UI Elements

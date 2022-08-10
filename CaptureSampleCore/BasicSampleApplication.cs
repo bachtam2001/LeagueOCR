@@ -112,10 +112,10 @@ namespace CaptureSampleCore
 
         public void CreateAreasOfInterest(bool useESportsTimers)
         {
-            AOIList.Blue_Gold = new AreaOfInterest(757, 15, 90, 25, AOIType.BlueGold);
-            AOIList.Red_Gold = new AreaOfInterest(1140, 15, 90, 25, AOIType.RedGold);
-            AOIList.BaronTeam = new AreaOfInterest(725, 230, 465, 30, AOIType.GoldText);
-            AOIList.DragonTeam = new AreaOfInterest(745, 230, 420, 30, AOIType.GoldText);
+            AOIList.Blue_Gold = new AreaOfInterest(790, 15, 65, 25, AOIType.BlueGold);
+            AOIList.Red_Gold = new AreaOfInterest(1115, 15, 65, 25, AOIType.RedGold);
+            AOIList.BaronTeam = new AreaOfInterest(715, 225, 490, 30, AOIType.GoldText);
+            AOIList.DragonTeam = new AreaOfInterest(730, 230, 470, 30, AOIType.GoldText);
             if(useESportsTimers)
             {
                 AOIList.Dragon_Timer = new AreaOfInterest(90, 45, 50, 20, AOIType.ESportsTimer);

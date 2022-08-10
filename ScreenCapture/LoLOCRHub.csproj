@@ -194,7 +194,7 @@
       <Version>4.1.1</Version>
     </PackageReference>
     <PackageReference Include="Microsoft.Windows.SDK.Contracts">
-      <Version>10.0.19041.1</Version>
+      <Version>10.0.22621.1</Version>
     </PackageReference>
     <PackageReference Include="Owin">
       <Version>1.0.0</Version>
@@ -217,10 +217,22 @@
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>
-    <Content Include="cache\dragon_icons\cloud.png">
+    <Content Include="cache\dragon_icons\air.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="cache\dragon_icons\cloudLarge.png">
+    <Content Include="cache\dragon_icons\airLarge.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="cache\dragon_icons\chemtech.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="cache\dragon_icons\chemtechLarge.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="cache\dragon_icons\earth.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="cache\dragon_icons\earthLarge.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="cache\dragon_icons\elder.png">
@@ -235,16 +247,16 @@
     <Content Include="cache\dragon_icons\fireLarge.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="cache\dragon_icons\mountain.png">
+    <Content Include="cache\dragon_icons\hextech.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="cache\dragon_icons\mountainLarge.png">
+    <Content Include="cache\dragon_icons\hextechLarge.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="cache\dragon_icons\ocean.png">
+    <Content Include="cache\dragon_icons\water.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="cache\dragon_icons\oceanLarge.png">
+    <Content Include="cache\dragon_icons\waterLarge.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Resource Include="wardIcon.ico" />

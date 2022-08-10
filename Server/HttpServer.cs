@@ -36,7 +36,7 @@ namespace Server
         public HttpServer(int port)
         {
             this.port = port;
-            uri = string.Concat("http://localhost:", port);
+            uri = string.Concat("http://*:", port);
             oldValues = new List<List<int>>();
             //blue Team
             oldValues.Add(new List<int>());

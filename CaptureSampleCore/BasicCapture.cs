@@ -28,6 +28,7 @@ using SharpDX.Direct3D11;
 using SharpDX.DXGI;
 using System;
 using System.Drawing;
+using System.Runtime.InteropServices;
 using Windows.Graphics;
 using Windows.Graphics.Capture;
 using Windows.Graphics.DirectX;
@@ -36,6 +37,7 @@ using Windows.UI.Composition;
 
 namespace CaptureSampleCore
 {
+
     public class BasicCapture : IDisposable
     {
         private GraphicsCaptureItem item;

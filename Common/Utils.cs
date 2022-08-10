@@ -11,9 +11,11 @@ namespace Common
         public enum DragonType
         {
             debug,
-            cloud,
-            mountain,
-            ocean,
+            air,
+            earth,
+            hextech,
+            chemtech,
+            water,
             fire,
             elder
         }
